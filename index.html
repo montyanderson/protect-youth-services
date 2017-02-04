@@ -8,12 +8,31 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet">
 
 		<style>
+		@font-face {
+			font-family: "Adam";
+			src: url("fonts/ADAM.CG PRO.otf") format("opentype");
+		}
+
+		@font-face {
+			font-family: "Questrial";
+			src: url("fonts/Questrial-Regular.otf") format("opentype");
+		}
+
+		h1, .brand-logo {
+			font-family: "Adam" !important;
+		}
+
+		body {
+			font-family: "Questrial" !important;
+		}
+
 		.main {
 			margin-top: 2rem;
 		}
 
+
 		.pys-purple {
-			background: rgb(127, 32, 130) !important;
+			background-color: rgb(127, 32, 130) !important;
 		}
 
 		.pys-purple-text {
@@ -21,7 +40,7 @@
 		}
 
 		.pys-yellow {
-			backgrond: rgb(255, 237, 0) !important;
+			background-color: rgb(255, 237, 0) !important;
 		}
 
 		.pys-yellow-text {
@@ -33,9 +52,9 @@
 	<body>
 
 
-		<nav class="pys-purple">
+		<nav class="pys-purple black-text">
 			<div class="nav-wrapper container">
-				<a class="brand-logo pys-yellow-text">Protect Youth Services</a>
+				<a class="brand-logo black-text pys-yellow-text">Protect Youth Services</a>
 
 			</div>
 		</nav>
