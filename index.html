@@ -70,10 +70,13 @@
 						<button class="btn btn-large pys-purple tweet-this col s12" data-text="#tweettext">Tweet this!</button>
 					</div>
 
-					<div class="row">
+					<!--<div class="row">
 						<img class="col s12" src="images/i1.JPG">
+					</div>-->
+
+					<div class="posts">
+
 					</div>
-					
 				</div>
 
 
@@ -88,6 +91,28 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
 		<script>
+		$.ajax({
+			url: "https://api.tumblr.com/v2/blog/pysbrighton.tumblr.com/posts/text?api_key=fuiKNFp9vQFvjLNvx4sUwti4Yb5yGutBN4Xh10LXZhhRKjWlV4&notes_info=true",
+			dataType: "jsonp",
+			jsonp: "callback",
+			jsonpCallback: "cb"
+		});
+
+		function cb(data) {
+			var posts = data.response.posts;
+			console.log(data);
+
+			posts.forEach(function(post) {
+				var el = $("<div class='row post'></div>");
+
+				el.append($("<h2></h2>").text(post.title));
+				el.append(post.body);
+				el.append($("<p class='grey-text'></p>").text(post.date));
+
+				$(".posts").append(el);
+			});
+		}
+
 		$(".tweet-this").click(function() {
 			var text = $($(this).attr("data-text")).val();
 			var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text);
